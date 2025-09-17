@@ -155,6 +155,8 @@ class Loginpage extends StatelessWidget {
                                   context,
                                   MaterialPageRoute(builder: (_) => Viewpage()),
                                 );
+                                passwordController.clear();
+                                usernameController.clear();
                               } else {
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   SnackBar(
@@ -164,6 +166,8 @@ class Loginpage extends StatelessWidget {
                                     backgroundColor: Colors.red,
                                   ),
                                 );
+                                passwordController.clear();
+                                usernameController.clear();
                               }
 
                               loginController.setLoading(false);
