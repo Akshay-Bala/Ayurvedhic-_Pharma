@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:machine_test/Controllers/fetchPatients.dart';
+import 'package:machine_test/Controllers/fetchTreatementlist.dart';
 import 'package:machine_test/Controllers/logincontrollr.dart';
 import 'package:machine_test/Views/loginpage.dart';
 import 'package:provider/provider.dart';
@@ -10,6 +11,7 @@ MultiProvider(
   providers: [
     ChangeNotifierProvider(create: (context) => LoginController()),
     ChangeNotifierProvider(create: (_) => PatientProvider()),
+     ChangeNotifierProvider(create: (_) => TreatmentProvider()),
   ],
   child: MyApp(),
 )

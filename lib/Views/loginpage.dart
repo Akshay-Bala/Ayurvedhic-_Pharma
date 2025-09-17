@@ -18,7 +18,7 @@ class Loginpage extends StatelessWidget {
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Padding(
-          padding:  EdgeInsets.all(8.0),
+          padding: EdgeInsets.all(8.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -122,10 +122,14 @@ class Loginpage extends StatelessWidget {
                                 return;
                               }
 
+                              // Start loading
+                              loginController.setLoading(true);
+
                               bool success = await loginController.login(
                                 username,
                                 password,
                               );
+
                               if (success) {
                                 final patientProvider =
                                     Provider.of<PatientProvider>(
@@ -150,6 +154,9 @@ class Loginpage extends StatelessWidget {
                                   ),
                                 );
                               }
+
+                              // Stop loading
+                              loginController.setLoading(false);
                             },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Color(0xFF006837),
@@ -174,11 +181,12 @@ class Loginpage extends StatelessWidget {
                   );
                 },
               ),
+
               SizedBox(height: 10),
 
               Center(
                 child: Padding(
-                  padding:  EdgeInsets.all(16.0),
+                  padding: EdgeInsets.all(16.0),
                   child: RichText(
                     textAlign: TextAlign.center,
                     text: TextSpan(

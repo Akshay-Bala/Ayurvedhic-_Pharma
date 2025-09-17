@@ -192,7 +192,7 @@ class Viewpage extends StatelessWidget {
                                         context,
                                         MaterialPageRoute(
                                           builder: (context) =>
-                                              Registerpage(patient: patient),
+                                              Registerpage(patient: patient,token: loginController.token,),
                                         ),
                                       );
                                     },
@@ -224,7 +224,7 @@ class Viewpage extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => Registerpage(patient: null),
+                      builder: (context) => Registerpage(patient: null,token: loginController.token,),
                     ),
                   );
                 },
