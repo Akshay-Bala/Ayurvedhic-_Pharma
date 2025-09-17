@@ -10,7 +10,6 @@ class TreatmentProvider with ChangeNotifier {
   List<Treatment> get treatments => _treatments;
   bool get loading => _loading;
 
-  /// Fetch treatments from API with Bearer token
   Future<void> fetchTreatments(String token) async {
     if (_loading) return;
 
@@ -32,13 +31,11 @@ class TreatmentProvider with ChangeNotifier {
       if (response.statusCode == 200) {
         final jsonData = json.decode(response.body);
 
-        // Adjust this based on your API JSON structure
         if (jsonData['treatments'] != null) {
           _treatments = (jsonData['treatments'] as List)
               .map((e) => Treatment.fromJson(e))
               .toList();
         } else if (jsonData['data'] != null) {
-          // If API returns data key
           _treatments = (jsonData['data'] as List)
               .map((e) => Treatment.fromJson(e))
               .toList();

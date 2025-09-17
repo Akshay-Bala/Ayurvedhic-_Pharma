@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:machine_test/Controllers/fetchPatients.dart';
 import 'package:machine_test/Controllers/logincontrollr.dart';
@@ -30,6 +32,10 @@ class Loginpage extends StatelessWidget {
                     width: screenWidth,
                     height: 200,
                     fit: BoxFit.cover,
+                  ),
+                  BackdropFilter(
+                    filter: ImageFilter.blur(sigmaX: 2, sigmaY: 2),
+                    child: Container(color: Colors.black.withOpacity(0.2)),
                   ),
                   Image.asset(
                     'assets/asset.jpg',
@@ -122,7 +128,6 @@ class Loginpage extends StatelessWidget {
                                 return;
                               }
 
-                              // Start loading
                               loginController.setLoading(true);
 
                               bool success = await loginController.login(
@@ -155,7 +160,6 @@ class Loginpage extends StatelessWidget {
                                 );
                               }
 
-                              // Stop loading
                               loginController.setLoading(false);
                             },
                       style: ElevatedButton.styleFrom(

@@ -43,8 +43,8 @@ class Treatment {
     final String? duration;
     final String? price;
     final bool? isActive;
-    final DateTime? createdAt;
-    final DateTime? updatedAt;
+    final String? createdAt;
+    final String? updatedAt;
 
     factory Treatment.fromJson(Map<String, dynamic> json){ 
         return Treatment(
@@ -54,8 +54,8 @@ class Treatment {
             duration: json["duration"],
             price: json["price"],
             isActive: json["is_active"],
-            createdAt: DateTime.tryParse(json["created_at"] ?? ""),
-            updatedAt: DateTime.tryParse(json["updated_at"] ?? ""),
+            createdAt: json["created_at"],
+            updatedAt: json["updated_at"],
         );
     }
 
@@ -66,8 +66,8 @@ class Treatment {
         "duration": duration,
         "price": price,
         "is_active": isActive,
-        "created_at": createdAt?.toIso8601String(),
-        "updated_at": updatedAt?.toIso8601String(),
+        "created_at": createdAt,
+        "updated_at": updatedAt,
     };
 
 }

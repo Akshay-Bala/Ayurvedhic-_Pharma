@@ -38,7 +38,6 @@ class _RegisterpageState extends State<Registerpage> {
   void initState() {
     super.initState();
 
-    // Fetch treatments using Provider
     Future.microtask(() {
       Provider.of<TreatmentProvider>(context, listen: false)
           .fetchTreatments(widget.token);
@@ -301,7 +300,6 @@ class _RegisterpageState extends State<Registerpage> {
             _buildTextField('Treatment Date', treatmentDateController, TextInputType.datetime),
             SizedBox(height: 20),
 
-            // Treatments List
             ValueListenableBuilder<List<Map<String, TextEditingController>>>(
               valueListenable: treatmentsNotifier,
               builder: (context, treatments, child) {
@@ -396,7 +394,6 @@ class _RegisterpageState extends State<Registerpage> {
             ),
             SizedBox(height: 20),
 
-            // Save Button
             SizedBox(
               width: double.infinity,
               height: 50,
