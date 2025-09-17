@@ -136,6 +136,12 @@ class Loginpage extends StatelessWidget {
                               );
 
                               if (success) {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: Text('Login Successfull'),
+                                    backgroundColor: Colors.green,
+                                  ),
+                                );
                                 final patientProvider =
                                     Provider.of<PatientProvider>(
                                       context,
@@ -153,7 +159,7 @@ class Loginpage extends StatelessWidget {
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   SnackBar(
                                     content: Text(
-                                      'Login failed. Please check your credentials.',
+                                      'Please check username and password.',
                                     ),
                                     backgroundColor: Colors.red,
                                   ),

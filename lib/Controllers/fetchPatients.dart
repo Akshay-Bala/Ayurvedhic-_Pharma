@@ -11,7 +11,7 @@ class PatientProvider with ChangeNotifier {
   bool get loading => _loading;
 
   Future<void> fetchPatients(String token) async {
-    if (_loading) return; 
+    if (_loading) return;
 
     _loading = true;
     notifyListeners();
